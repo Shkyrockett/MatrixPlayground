@@ -9,6 +9,7 @@
 // <remarks>
 // </remarks>
 
+using MathematicsNotationLibrary;
 using System.Drawing;
 
 namespace MatrixPlayground
@@ -16,7 +17,7 @@ namespace MatrixPlayground
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="MatrixPlayground.IRenderable" />
+    /// <seealso cref="IRenderable" />
     internal class RectangleElement
         : IRenderable
     {

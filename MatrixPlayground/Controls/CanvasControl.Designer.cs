@@ -52,9 +52,7 @@ namespace MatrixPlayground
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.AutoSize = true;
-            this.numericUpDown1.DecimalPlaces = 3;
-            this.numericUpDown1.ForeColor = System.Drawing.Color.Black;
+            this.numericUpDown1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.numericUpDown1.Location = new System.Drawing.Point(0, 0);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             2147483647,
@@ -67,9 +65,8 @@ namespace MatrixPlayground
             0,
             -2147483648});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 23);
+            this.numericUpDown1.Size = new System.Drawing.Size(49, 23);
             this.numericUpDown1.TabIndex = 0;
-            this.numericUpDown1.Visible = false;
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.NumericUpDown1_ValueChanged);
             this.numericUpDown1.Validated += new System.EventHandler(this.NumericUpDown1_Validated);
             // 
@@ -82,11 +79,13 @@ namespace MatrixPlayground
             this.Load += new System.EventHandler(this.CanvasControl_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Canvas_Paint);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.CanvasControl_MouseClick);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CanvasControl_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CanvasControl_MouseMove);
+            this.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.CanvasControl_MouseWheel);
             this.Move += new System.EventHandler(this.Canvas_Move);
             this.Resize += new System.EventHandler(this.Canvas_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

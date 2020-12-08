@@ -1,11 +1,23 @@
-﻿using System.Drawing;
+﻿// <copyright file="TextElement.cs" company="Shkyrockett" >
+//     Copyright © 2020 Shkyrockett. All rights reserved.
+// </copyright>
+// <author id="shkyrockett">Shkyrockett</author>
+// <license>
+//     Licensed under the MIT License. See LICENSE file in the project root for full license information.
+// </license>
+// <summary></summary>
+// <remarks>
+// </remarks>
+
+using MathematicsNotationLibrary;
+using System.Drawing;
 
 namespace MatrixPlayground
 {
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="MatrixPlayground.IRenderable" />
+    /// <seealso cref="IRenderable" />
     public class TextElement
         : IRenderable
     {

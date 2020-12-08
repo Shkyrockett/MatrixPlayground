@@ -42,4 +42,8 @@
     <None Include="..\.editorconfig" Link="Properties\.editorconfig" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MathematicsNotationLibrary\MathematicsNotationLibrary.csproj" />
+  </ItemGroup>
+
 </Project>
