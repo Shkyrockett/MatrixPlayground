@@ -19,9 +19,9 @@ namespace MathematicsNotationLibrary
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="IExponatable" />
-    /// <seealso cref="INegatable" />
-    /// <seealso cref="IEditable" />
+    /// <seealso cref="MathematicsNotationLibrary.IExponatable" />
+    /// <seealso cref="MathematicsNotationLibrary.INegatable" />
+    /// <seealso cref="MathematicsNotationLibrary.IEditable" />
     public class FunctionFactor
         : IExponatable, INegatable, IEditable
     {

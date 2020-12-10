@@ -21,8 +21,8 @@ namespace MathematicsNotationLibrary
     /// <summary>
     /// Draw one item over another.
     /// </summary>
-    /// <seealso cref="IExpression" />
-    /// <seealso cref="INegatable" />
+    /// <seealso cref="MathematicsNotationLibrary.IExpression" />
+    /// <seealso cref="MathematicsNotationLibrary.INegatable" />
     [JsonConverter(typeof(QuotientFactor))]
     public class QuotientFactor
         : IExponatable, IGroupable, INegatable, IEditable

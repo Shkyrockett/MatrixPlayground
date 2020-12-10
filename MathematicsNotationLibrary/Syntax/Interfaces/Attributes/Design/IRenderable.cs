@@ -16,7 +16,7 @@ namespace MathematicsNotationLibrary
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="IBoundable" />
+    /// <seealso cref="MathematicsNotationLibrary.IBoundable" />
     public interface IRenderable
         : IBoundable
     {

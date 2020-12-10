@@ -21,8 +21,8 @@ namespace MathematicsNotationLibrary
     /// <summary>
     /// The root equation class.
     /// </summary>
-    /// <seealso cref="IExpression" />
-    /// <seealso cref="INegatable" />
+    /// <seealso cref="MathematicsNotationLibrary.IExpression" />
+    /// <seealso cref="MathematicsNotationLibrary.INegatable" />
     public class RootFunction
         : IExponatable, INegatable, IEditable
     {

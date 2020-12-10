@@ -22,9 +22,9 @@ namespace MathematicsNotationLibrary
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="IExpression" />
-    /// <seealso cref="INegatable" />
-    /// <seealso cref="IEditable" />
+    /// <seealso cref="MathematicsNotationLibrary.IExpression" />
+    /// <seealso cref="MathematicsNotationLibrary.INegatable" />
+    /// <seealso cref="MathematicsNotationLibrary.IEditable" />
     public class LogarithmFunction
         : IFactor, INegatable, IEditable
     {

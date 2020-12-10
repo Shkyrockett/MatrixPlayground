@@ -22,10 +22,10 @@ namespace MathematicsNotationLibrary
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="IExponatable" />
-    /// <seealso cref="IGroupable" />
-    /// <seealso cref="IEditable" />
-    /// <seealso cref="IExpression" />
+    /// <seealso cref="MathematicsNotationLibrary.IExponatable" />
+    /// <seealso cref="MathematicsNotationLibrary.IGroupable" />
+    /// <seealso cref="MathematicsNotationLibrary.IEditable" />
+    /// <seealso cref="MathematicsNotationLibrary.IExpression" />
     public class FractionNumericMatrixFactor
         : IExponatable, INumericValueFactor, IGroupable, IEditable
     {

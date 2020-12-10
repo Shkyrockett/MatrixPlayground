@@ -20,11 +20,11 @@ namespace MathematicsNotationLibrary
     /// <summary>
     /// Draw an item to a power.
     /// </summary>
-    /// <seealso cref="IExpression" />
-    /// <seealso cref="INegatable" />
-    /// <seealso cref="IExponatable" />
-    /// <seealso cref="IFactor" />
-    /// <seealso cref="IEditable" />
+    /// <seealso cref="MathematicsNotationLibrary.IExpression" />
+    /// <seealso cref="MathematicsNotationLibrary.INegatable" />
+    /// <seealso cref="MathematicsNotationLibrary.IExponatable" />
+    /// <seealso cref="MathematicsNotationLibrary.IFactor" />
+    /// <seealso cref="MathematicsNotationLibrary.IEditable" />
     public class PowerFactor
         : IExpression, INegatable, IExponatable, IFactor, IEditable
     {

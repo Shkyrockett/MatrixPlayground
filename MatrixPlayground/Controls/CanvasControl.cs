@@ -18,6 +18,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
+using static Interop;
 using static Interop.User32;
 
 namespace MatrixPlayground
@@ -25,14 +26,25 @@ namespace MatrixPlayground
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="UserControl" />
+    /// <seealso cref="System.Windows.Forms.UserControl" />
     public partial class CanvasControl
         : UserControl
     {
         #region Events
-        internal event EventHandler<WMTouchEventArgs> Touchdown;   // touch down event handler
-        internal event EventHandler<WMTouchEventArgs> Touchup;     // touch up event handler
-        internal event EventHandler<WMTouchEventArgs> TouchMove;   // touch move event handler
+        /// <summary>
+        /// Occurs when touch down event handler fires.
+        /// </summary>
+        public event EventHandler<WMTouchEventArgs> Touchdown;
+
+        /// <summary>
+        /// Occurs when touch up event handler fires.
+        /// </summary>
+        public event EventHandler<WMTouchEventArgs> Touchup;
+
+        /// <summary>
+        /// Occurs when touch move event handler fires.
+        /// </summary>
+        public event EventHandler<WMTouchEventArgs> TouchMove;
         #endregion
 
         #region Fields
@@ -108,6 +120,15 @@ namespace MatrixPlayground
         //[DefaultValue(System.Drawing.SystemColors.Window)]
         public override Color BackColor { get => base.BackColor; set => base.BackColor = value; }
         #endregion
+
+        /// <summary>
+        /// Occurs when [text box validated].
+        /// </summary>
+        public event EventHandler TextBoxValidated
+        {
+            add { numericUpDown1.Validated += value; }
+            remove { numericUpDown1.Validated -= value; }
+        }
 
         #region Windows Proc
         /// <summary>
@@ -383,24 +404,27 @@ namespace MatrixPlayground
             var outer = new SizeF(window.Width - padding, window.Height - padding);
 
             var g = e.Graphics;
-            var inner = Expression.Layout(g, base.Font, 1f);
-            var cScale = Utilities.FitSizeWithin(inner, outer);
-            inner = Expression.Layout(g, base.Font, cScale);
+            if (Expression is not null)
+            {
+                var inner = Expression.Layout(g, base.Font, 1f);
+                var cScale = Utilities.FitSizeWithin(inner, outer);
+                inner = Expression.Layout(g, base.Font, cScale);
 
-            PointF location = new((window.Width - inner.Width) * 0.5f, (window.Height - inner.Height) * 0.5f);
+                PointF location = new((window.Width - inner.Width) * 0.5f, (window.Height - inner.Height) * 0.5f);
 
-            g.Clear(BackColor);
-            g.ResetTransform();
-            g.ScaleTransform(scale, scale);
-            g.TranslateTransform(panPoint.X, panPoint.Y);
-            g.TextRenderingHint = TextRenderingHint.AntiAlias;
-            g.SmoothingMode = SmoothingMode.AntiAlias;
-            g.CompositingQuality = CompositingQuality.HighQuality;
-            g.CompositingMode = CompositingMode.SourceOver;
+                g.Clear(BackColor);
+                g.ResetTransform();
+                g.ScaleTransform(scale, scale);
+                g.TranslateTransform(panPoint.X, panPoint.Y);
+                g.TextRenderingHint = TextRenderingHint.AntiAlias;
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+                g.CompositingQuality = CompositingQuality.HighQuality;
+                g.CompositingMode = CompositingMode.SourceOver;
 
-            Expression?.Draw(g, base.Font, Brushes.Black, Pens.Black, location, cScale, RenderBoundaries);
+                Expression?.Draw(g, base.Font, Brushes.Black, Pens.Black, location, cScale, RenderBoundaries);
 
-            CalculateClickRegions();
+                CalculateClickRegions();
+            }
 
             using var brush = new SolidBrush(Color.FromArgb(128, Color.CornflowerBlue));
             if (hotSpots is not null && hotSpots.Count > 0)

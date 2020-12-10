@@ -22,9 +22,9 @@ namespace MathematicsNotationLibrary
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="ICoefficient" />
-    /// <seealso cref="INegatable" />
-    /// <seealso cref="IEditable" />
+    /// <seealso cref="MathematicsNotationLibrary.ICoefficient" />
+    /// <seealso cref="MathematicsNotationLibrary.INegatable" />
+    /// <seealso cref="MathematicsNotationLibrary.IEditable" />
     [JsonConverter(typeof(NumericFactor))]
     public class NumericFactor
         : ICoefficient, IChild, IEditable

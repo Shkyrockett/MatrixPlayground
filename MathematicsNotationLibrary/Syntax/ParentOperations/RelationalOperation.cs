@@ -22,7 +22,7 @@ namespace MathematicsNotationLibrary
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="IExpression" />
+    /// <seealso cref="MathematicsNotationLibrary.IExpression" />
     [JsonConverter(typeof(NumericFactor))]
     public class RelationalOperation
         : IExpression, IEditable

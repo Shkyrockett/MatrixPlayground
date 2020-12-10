@@ -14,7 +14,7 @@ namespace MathematicsNotationLibrary
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="INumeric" />
+    /// <seealso cref="MathematicsNotationLibrary.INumeric" />
     public interface IConstant
         : INumeric
     { }

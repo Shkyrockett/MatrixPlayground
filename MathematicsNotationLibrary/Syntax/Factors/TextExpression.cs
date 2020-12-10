@@ -20,8 +20,8 @@ namespace MathematicsNotationLibrary
     /// <summary>
     /// Draw some text.
     /// </summary>
-    /// <seealso cref="IExpression" />
-    /// <seealso cref="INegatable" />
+    /// <seealso cref="MathematicsNotationLibrary.IExpression" />
+    /// <seealso cref="MathematicsNotationLibrary.INegatable" />
     public class TextExpression
         : IExpression, IEditable
     {

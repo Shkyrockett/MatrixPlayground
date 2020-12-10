@@ -22,9 +22,9 @@ namespace MathematicsNotationLibrary
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="ITerm" />
-    /// <seealso cref="IEditable" />
-    /// <seealso cref="INegatable" />
+    /// <seealso cref="MathematicsNotationLibrary.ITerm" />
+    /// <seealso cref="MathematicsNotationLibrary.IEditable" />
+    /// <seealso cref="MathematicsNotationLibrary.INegatable" />
     [JsonConverter(typeof(ProductTerm))]
     public class ProductTerm
         : ITerm, INegatable, IEditable

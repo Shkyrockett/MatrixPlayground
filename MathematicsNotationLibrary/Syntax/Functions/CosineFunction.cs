@@ -18,10 +18,10 @@ namespace MathematicsNotationLibrary
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="IExpression" />
-    /// <seealso cref="IFunction" />
-    /// <seealso cref="IFactor" />
-    /// <seealso cref="IGroupable" />
+    /// <seealso cref="MathematicsNotationLibrary.IExpression" />
+    /// <seealso cref="MathematicsNotationLibrary.IFunction" />
+    /// <seealso cref="MathematicsNotationLibrary.IFactor" />
+    /// <seealso cref="MathematicsNotationLibrary.IGroupable" />
     public class CosineFunction
         : IExpression, IChild, IFunction, IFactor, ISequenceable, IExponatable, IGroupable
     {

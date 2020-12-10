@@ -14,7 +14,7 @@ namespace MathematicsNotationLibrary
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="IFactor" />
+    /// <seealso cref="MathematicsNotationLibrary.IFactor" />
     public interface ISequenceable
         : IFactor
     {

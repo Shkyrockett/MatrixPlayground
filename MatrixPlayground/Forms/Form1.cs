@@ -10,6 +10,7 @@
 // </remarks>
 
 using MathematicsNotationLibrary;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -67,6 +68,8 @@ namespace MatrixPlayground
         /// </summary>
         private NumericMatrixFactor matrixResultand;
 
+        private Func<IExpression> expression;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Form1"/> class.
         /// </summary>
@@ -115,6 +118,7 @@ namespace MatrixPlayground
             "RotateMatrixCounterClockwiseFactory",
             "TransposeMatrixEquationFactory"});
 
+            expression = () => new RelationalOperation(ComparisonOperators.Equals, null, null);
             canvasControl.AutoSize = true;
             canvasControl.Focus();
         }
@@ -126,58 +130,49 @@ namespace MatrixPlayground
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void ListBox1_SelectedIndexChanged(object sender, System.EventArgs e)
         {
-            switch ((string)listBox1.SelectedItem)
+            expression = ((string)listBox1.SelectedItem) switch
             {
-                case "AdditionEquationFactory":
-                    canvasControl.Expression = SyntaxTemplates.AdditionEquationFactory(matrixOperand1, matrixOperand2, out matrixResultand);
-                    break;
-                case "SubtractionEquationFactory":
-                    canvasControl.Expression = SyntaxTemplates.SubtractionEquationFactory(matrixOperand1, matrixOperand2, out matrixResultand);
-                    break;
-                case "ProductEquationFactory":
-                    canvasControl.Expression = SyntaxTemplates.ProductEquationFactory(matrixOperand1, matrixOperand2, out matrixResultand);
-                    break;
-                case "QuotientEquationFactory":
-                    canvasControl.Expression = SyntaxTemplates.QuotientEquationFactory(matrixOperand1, matrixOperand2, out matrixResultand);
-                    break;
-                case "ScaleEquationFactory":
-                    canvasControl.Expression = SyntaxTemplates.ScaleEquationFactory(numericOperand1, matrixOperand2, out matrixResultand);
-                    break;
-                case "FractionScaleEquationFactory":
-                    canvasControl.Expression = SyntaxTemplates.FractionScaleEquationFactory(fractionOperand1, matrixOperand2, out _);
-                    break;
-                //case "LogarithmEquationFactory":
-                //    canvasControl.Expression = SyntaxTemplates.LogarithmEquationFactory(matrixOperand1, out matrixResultand);
-                //    break;
-                //case "SquareRootEquationFactory":
-                //    canvasControl.Expression = SyntaxTemplates.SquareRootEquationFactory(matrixOperand1, out matrixResultand);
-                //    break;
-                //case "CubeRootEquationFactory":
-                //    canvasControl.Expression = SyntaxTemplates.CubeRootEquationFactory(matrixOperand1, out matrixResultand);
-                //    break;
-                case "SquareEquationFactory":
-                    canvasControl.Expression = SyntaxTemplates.SquareEquationFactory(matrixOperand1, out matrixResultand);
-                    break;
-                case "CubeEquationFactory":
-                    canvasControl.Expression = SyntaxTemplates.CubeEquationFactory(matrixOperand1, out matrixResultand);
-                    break;
-                case "InverseEquationFactory":
-                    canvasControl.Expression = SyntaxTemplates.InverseEquationFactory(matrixOperand1, out matrixResultand);
-                    break;
-                case "RotateMatrixClockwiseFactory":
-                    canvasControl.Expression = SyntaxTemplates.RotateMatrixClockwiseFactory(matrixOperand1, out matrixResultand);
-                    break;
-                case "RotateMatrixCounterClockwiseFactory":
-                    canvasControl.Expression = SyntaxTemplates.RotateMatrixCounterClockwiseFactory(matrixOperand1, out matrixResultand);
-                    break;
-                case "TransposeMatrixEquationFactory":
-                    canvasControl.Expression = SyntaxTemplates.TransposeMatrixEquationFactory(matrixOperand1, out matrixResultand);
-                    break;
-                default:
-                    break;
-            }
+                "AdditionEquationFactory" => () => SyntaxTemplates.AdditionEquationFactory(matrixOperand1, matrixOperand2, out matrixResultand),
+                "SubtractionEquationFactory" => () => SyntaxTemplates.SubtractionEquationFactory(matrixOperand1, matrixOperand2, out matrixResultand),
+                "ProductEquationFactory" => () => SyntaxTemplates.ProductEquationFactory(matrixOperand1, matrixOperand2, out matrixResultand),
+                "QuotientEquationFactory" => () => SyntaxTemplates.QuotientEquationFactory(matrixOperand1, matrixOperand2, out matrixResultand),
+                "ScaleEquationFactory" => () => SyntaxTemplates.ScaleEquationFactory(numericOperand1, matrixOperand2, out matrixResultand),
+                "FractionScaleEquationFactory" => () => SyntaxTemplates.FractionScaleEquationFactory(fractionOperand1, matrixOperand2, out _),
+                //"LogarithmEquationFactory" => () => SyntaxTemplates.LogarithmEquationFactory(matrixOperand1, out matrixResultand),
+                //"SquareRootEquationFactory" => () => SyntaxTemplates.SquareRootEquationFactory(matrixOperand1, out matrixResultand),
+                //"CubeRootEquationFactory" => () => SyntaxTemplates.CubeRootEquationFactory(matrixOperand1, out matrixResultand),
+                "SquareEquationFactory" => () => SyntaxTemplates.SquareEquationFactory(matrixOperand1, out matrixResultand),
+                "CubeEquationFactory" => () => SyntaxTemplates.CubeEquationFactory(matrixOperand1, out matrixResultand),
+                "InverseEquationFactory" => () => SyntaxTemplates.InverseEquationFactory(matrixOperand1, out matrixResultand),
+                "RotateMatrixClockwiseFactory" => () => SyntaxTemplates.RotateMatrixClockwiseFactory(matrixOperand1, out matrixResultand),
+                "RotateMatrixCounterClockwiseFactory" => () => SyntaxTemplates.RotateMatrixCounterClockwiseFactory(matrixOperand1, out matrixResultand),
+                "TransposeMatrixEquationFactory" => () => SyntaxTemplates.TransposeMatrixEquationFactory(matrixOperand1, out matrixResultand),
+                _ => () => new RelationalOperation(ComparisonOperators.Equals, null, null),
+            };
 
+            canvasControl.Expression = expression.Invoke();
             canvasControl.Invalidate();
+        }
+
+        /// <summary>
+        /// Handles the Click event of the CanvasControl control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void CanvasControl_Click(object sender, EventArgs e)
+        {
+            if (expression is not null) canvasControl.Expression = expression.Invoke();
+        }
+
+        /// <summary>
+        /// Handles the TextBoxValidated event of the CanvasControl control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        /// <returns></returns>
+        private void CanvasControl_TextBoxValidated(object sender, EventArgs e)
+        {
+            if (expression is not null) canvasControl.Expression = expression.Invoke();
         }
     }
 }

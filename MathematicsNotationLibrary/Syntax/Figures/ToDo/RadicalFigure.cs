@@ -17,7 +17,7 @@ namespace MathematicsNotationLibrary
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="IFigure" />
+    /// <seealso cref="MathematicsNotationLibrary.IFigure" />
     public class RadicalFigure
         : IFigure
     {

@@ -16,5 +16,5 @@ namespace MathematicsNotationLibrary
     /// </summary>
     public interface IExpression
         : IDocumentObjectModel, IEditable, IChild, ILayout
-    { }
+    {}
 }

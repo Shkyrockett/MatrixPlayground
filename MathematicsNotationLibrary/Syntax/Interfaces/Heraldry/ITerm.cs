@@ -14,7 +14,7 @@ namespace MathematicsNotationLibrary
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="IExpression" />
+    /// <seealso cref="MathematicsNotationLibrary.IExpression" />
     public interface ITerm
         : IExpression, INegatable
     {

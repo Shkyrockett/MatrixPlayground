@@ -23,7 +23,7 @@ namespace MathematicsNotationLibrary
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="IExpression" />
+    /// <seealso cref="MathematicsNotationLibrary.IExpression" />
     public class NomialExpression
         : IExpression, INegatable, IGroupable, IEditable
     {

@@ -19,10 +19,10 @@ namespace MathematicsNotationLibrary
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="IExpression" />
-    /// <seealso cref="IFunction" />
-    /// <seealso cref="IFactor" />
-    /// <seealso cref="IGroupable" />
+    /// <seealso cref="MathematicsNotationLibrary.IExpression" />
+    /// <seealso cref="MathematicsNotationLibrary.IFunction" />
+    /// <seealso cref="MathematicsNotationLibrary.IFactor" />
+    /// <seealso cref="MathematicsNotationLibrary.IGroupable" />
     public class CustomFunction
         : IExpression, IChild, IFunction, IFactor, ISequenceable, IExponatable, IGroupable
     {
@@ -185,7 +185,6 @@ namespace MathematicsNotationLibrary
         /// <param name="font">The font.</param>
         /// <param name="scale">The scale.</param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         private SizeF Layout(Graphics graphics, Font font, float scale, out SizeF functionSize, out SizeF argumentSize)
         {
             Scale = scale;
@@ -226,7 +225,6 @@ namespace MathematicsNotationLibrary
         /// <param name="font">The font.</param>
         /// <param name="scale">The scale.</param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public SizeF Layout(Graphics graphics, Font font, float scale) => Layout(graphics, font, scale, out _, out _);
 
         /// <summary>
@@ -249,7 +247,6 @@ namespace MathematicsNotationLibrary
         /// <param name="location">The location.</param>
         /// <param name="scale">The scale.</param>
         /// <param name="drawBorders">if set to <see langword="true" /> [draw borders].</param>
-        /// <exception cref="NotImplementedException"></exception>
         /// <exception cref="NotImplementedException"></exception>
         public void Draw(Graphics graphics, Font font, Brush brush, Pen pen, PointF location, float scale, bool drawBounds = false)
         {

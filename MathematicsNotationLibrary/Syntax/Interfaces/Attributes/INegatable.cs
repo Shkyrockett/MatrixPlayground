@@ -16,7 +16,7 @@ namespace MathematicsNotationLibrary
     /// <summary>
     /// Negatable Interface
     /// </summary>
-    /// <seealso cref="IExpression" />
+    /// <seealso cref="MathematicsNotationLibrary.IExpression" />
     public interface INegatable
         : IExpression
     {

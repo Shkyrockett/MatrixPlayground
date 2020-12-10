@@ -20,7 +20,7 @@ namespace MathematicsNotationLibrary
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="IExpression" />
+    /// <seealso cref="MathematicsNotationLibrary.IExpression" />
     public class GroupingExpression
         : IExpression, INegatable, IEditable
     {

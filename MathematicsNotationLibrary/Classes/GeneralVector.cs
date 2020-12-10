@@ -21,7 +21,7 @@ namespace MathematicsNotationLibrary
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="IEquatable{T}" />
+    /// <seealso cref="System.IEquatable{T}" />
     [DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
     public class GeneralVector
         : IEquatable<GeneralVector>

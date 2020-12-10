@@ -14,10 +14,10 @@ namespace MathematicsNotationLibrary
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="INumeric" />
-    /// <seealso cref="ISequenceable" />
-    /// <seealso cref="IExponatable" />
+    /// <seealso cref="MathematicsNotationLibrary.INumeric" />
+    /// <seealso cref="MathematicsNotationLibrary.ISequenceable" />
+    /// <seealso cref="MathematicsNotationLibrary.IExponatable" />
     public interface ICoefficient
         : INumeric, ISequenceable, IExponatable
-    { }
+    {}
 }

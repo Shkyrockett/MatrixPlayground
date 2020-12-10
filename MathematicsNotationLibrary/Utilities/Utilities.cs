@@ -28,13 +28,13 @@ namespace MathematicsNotationLibrary
         /// </summary>
         internal static readonly Dictionary<ComparisonOperators, string> ComparisonOperatorDictionary = new()
         {
-            { ComparisonOperators.Equals, "=" },
-            { ComparisonOperators.NotEquals, "≠" },
-            { ComparisonOperators.LessThan, "<" },
-            { ComparisonOperators.GreaterThan, ">" },
-            { ComparisonOperators.LessThanOrEquals, "≤" },
-            { ComparisonOperators.GreaterThanOrEquals, "≥" },
-            { ComparisonOperators.Approximate, "≈" },
+            { ComparisonOperators.Equals,               "=" },
+            { ComparisonOperators.NotEquals,            "≠" },
+            { ComparisonOperators.LessThan,             "<" },
+            { ComparisonOperators.GreaterThan,          ">" },
+            { ComparisonOperators.LessThanOrEquals,     "≤" },
+            { ComparisonOperators.GreaterThanOrEquals,  "≥" },
+            { ComparisonOperators.Approximate,          "≈" },
         };
 
         /// <summary>

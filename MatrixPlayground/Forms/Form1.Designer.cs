@@ -77,6 +77,8 @@ namespace MatrixPlayground
             this.canvasControl.Size = new System.Drawing.Size(646, 450);
             this.canvasControl.TabIndex = 3;
             this.canvasControl.TabStop = false;
+            this.canvasControl.TextBoxValidated += new System.EventHandler(this.CanvasControl_TextBoxValidated);
+            this.canvasControl.Click += new System.EventHandler(this.CanvasControl_Click);
             // 
             // listBox1
             // 
