@@ -9,10 +9,10 @@
 // <remarks>
 // </remarks>
 
-using MathematicsNotationLibrary;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using MathematicsNotationLibrary;
 
 namespace MatrixPlayground
 {
@@ -77,7 +77,7 @@ namespace MatrixPlayground
         {
             InitializeComponent();
 
-            canvasControl.Font = new Font("Cambria Math", 12);
+            //canvasControl.Font = new Font("Cambria Math", 12);
             canvasControl.BackColor = Color.White;
             //matrixGrid1.RenderBoundaries = true;
 

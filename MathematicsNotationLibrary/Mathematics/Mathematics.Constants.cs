@@ -9,8 +9,8 @@
 // <remarks>
 // </remarks>
 
-using static MathematicsNotationLibrary.Operations;
 using static System.MathF;
+using static MathematicsNotationLibrary.Operations;
 
 namespace MathematicsNotationLibrary
 {

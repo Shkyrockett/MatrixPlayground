@@ -22,6 +22,9 @@ namespace MatrixPlayground
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
+        /// <summary>
+        /// The numeric up down1
+        /// </summary>
         private System.Windows.Forms.NumericUpDown numericUpDown1;
 
         /// <summary> 
@@ -52,8 +55,9 @@ namespace MatrixPlayground
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.numericUpDown1.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.numericUpDown1.Location = new System.Drawing.Point(0, 0);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4, 18, 4, 18);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             2147483647,
             0,
@@ -65,17 +69,20 @@ namespace MatrixPlayground
             0,
             -2147483648});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(49, 23);
+            this.numericUpDown1.Size = new System.Drawing.Size(63, 26);
             this.numericUpDown1.TabIndex = 0;
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.NumericUpDown1_ValueChanged);
             this.numericUpDown1.Validated += new System.EventHandler(this.NumericUpDown1_Validated);
             // 
             // CanvasControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 89F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.numericUpDown1);
+            this.Font = new System.Drawing.Font("Cambria Math", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Margin = new System.Windows.Forms.Padding(4, 18, 4, 18);
             this.Name = "CanvasControl";
+            this.Size = new System.Drawing.Size(193, 193);
             this.Load += new System.EventHandler(this.CanvasControl_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Canvas_Paint);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.CanvasControl_MouseClick);
@@ -88,7 +95,6 @@ namespace MatrixPlayground
             this.ResumeLayout(false);
 
         }
-
         #endregion
     }
 }

@@ -13,8 +13,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using static MathematicsNotationLibrary.Mathematics;
 using static System.Math;
+using static MathematicsNotationLibrary.Mathematics;
 
 namespace MathematicsNotationLibrary
 {

@@ -9,8 +9,8 @@
 // <remarks>
 // </remarks>
 
-using MathematicsNotationLibrary;
 using System.Drawing;
+using MathematicsNotationLibrary;
 
 namespace MatrixPlayground
 {

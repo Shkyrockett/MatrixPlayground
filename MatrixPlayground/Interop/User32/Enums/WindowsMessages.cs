@@ -9,11 +9,7 @@
 // <remarks>
 // </remarks>
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 
 /// <summary>
 /// 
@@ -28,12 +24,14 @@ internal static partial class Interop
         /// <summary>
         /// The windows messages enum.
         /// </summary>
-        [Flags]
         public enum WindowsMessages
+            : uint
         {
             /// <summary>
             /// The WM_NULL = 0x0000.
             /// </summary>
+            [Browsable(false)]
+            [EditorBrowsable(EditorBrowsableState.Never)]
             WM_NULL = 0x0000,
 
             /// <summary>
@@ -50,6 +48,11 @@ internal static partial class Interop
             /// The WM_MOVE = 0x0003.
             /// </summary>
             WM_MOVE = 0x0003,
+
+            /// <summary>
+            /// The WM_SIZEWAIT = 0x0004.
+            /// </summary>
+            WM_SIZEWAIT = 0x0004,
 
             /// <summary>
             /// The WM_SIZE = 0x0005.
@@ -70,6 +73,11 @@ internal static partial class Interop
             /// The WM_KILLFOCUS = 0x0008.
             /// </summary>
             WM_KILLFOCUS = 0x0008,
+
+            /// <summary>
+            /// The WM_SETVISIBLE = 0x0009.
+            /// </summary>
+            WM_SETVISIBLE = 0x0009,
 
             /// <summary>
             /// The WM_ENABLE = 0x000A.
@@ -112,19 +120,14 @@ internal static partial class Interop
             WM_QUERYENDSESSION = 0x0011,
 
             /// <summary>
-            /// The WM_QUERYOPEN = 0x0013.
-            /// </summary>
-            WM_QUERYOPEN = 0x0013,
-
-            /// <summary>
-            /// The WM_ENDSESSION = 0x0016.
-            /// </summary>
-            WM_ENDSESSION = 0x0016,
-
-            /// <summary>
             /// The WM_QUIT = 0x0012.
             /// </summary>
             WM_QUIT = 0x0012,
+
+            /// <summary>
+            /// The WM_QUERYOPEN = 0x0013.
+            /// </summary>
+            WM_QUERYOPEN = 0x0013,
 
             /// <summary>
             /// The WM_ERASEBKGND = 0x0014.
@@ -137,9 +140,24 @@ internal static partial class Interop
             WM_SYSCOLORCHANGE = 0x0015,
 
             /// <summary>
+            /// The WM_ENDSESSION = 0x0016.
+            /// </summary>
+            WM_ENDSESSION = 0x0016,
+
+            /// <summary>
+            /// The WM_SYSTEMERROR = 0x0017.
+            /// </summary>
+            WM_SYSTEMERROR = 0x0017,
+
+            /// <summary>
             /// The WM_SHOWWINDOW = 0x0018.
             /// </summary>
             WM_SHOWWINDOW = 0x0018,
+
+            /// <summary>
+            /// The WM_CTLCOLOR = 0x0019
+            /// </summary>
+            WM_CTLCOLOR = 0x0019,
 
             /// <summary>
             /// The WM_WININICHANGE = 0x001A.
@@ -202,6 +220,11 @@ internal static partial class Interop
             WM_GETMINMAXINFO = 0x0024,
 
             /// <summary>
+            /// The WM_LOGOFF = 0x0025.
+            /// </summary>
+            WM_LOGOFF = 0x0025,
+
+            /// <summary>
             /// The WM_PAINTICON = 0x0026.
             /// </summary>
             WM_PAINTICON = 0x0026,
@@ -215,6 +238,11 @@ internal static partial class Interop
             /// The WM_NEXTDLGCTL = 0x0028.
             /// </summary>
             WM_NEXTDLGCTL = 0x0028,
+
+            /// <summary>
+            /// The WM_ALTTABACTIVE = 0x0029.
+            /// </summary>
+            WM_ALTTABACTIVE = 0x0029,
 
             /// <summary>
             /// The WM_SPOOLERSTATUS = 0x002A.
@@ -267,9 +295,29 @@ internal static partial class Interop
             WM_GETHOTKEY = 0x0033,
 
             /// <summary>
+            /// The WM_SHELLNOTIFY = 0x0034.
+            /// </summary>
+            WM_SHELLNOTIFY = 0x0034,
+
+            /// <summary>
+            /// The WM_ISACTIVEICON = 0x0035.
+            /// </summary>
+            WM_ISACTIVEICON = 0x0035,
+
+            /// <summary>
+            /// The WM_QUERYPARKICON = 0x0036.
+            /// </summary>
+            WM_QUERYPARKICON = 0x0036,
+
+            /// <summary>
             /// The WM_QUERYDRAGICON = 0x0037.
             /// </summary>
             WM_QUERYDRAGICON = 0x0037,
+
+            /// <summary>
+            /// The WM_WINHELP = 0x0038.
+            /// </summary>
+            WM_WINHELP = 0x0038,
 
             /// <summary>
             /// The WM_COMPAREITEM = 0x0039.
@@ -277,14 +325,44 @@ internal static partial class Interop
             WM_COMPAREITEM = 0x0039,
 
             /// <summary>
+            /// The WM_FULLSCREEN = 0x003A.
+            /// </summary>
+            WM_FULLSCREEN = 0x003A,
+
+            /// <summary>
+            /// The WM_CLIENTSHUTDOWN = 0x003B.
+            /// </summary>
+            WM_CLIENTSHUTDOWN = 0x003B,
+
+            /// <summary>
+            /// The WM_DDEMLEVENT = 0x003C.
+            /// </summary>
+            WM_DDEMLEVENT = 0x003C,
+
+            /// <summary>
             /// The WM_GETOBJECT = 0x003D.
             /// </summary>
             WM_GETOBJECT = 0x003D,
 
             /// <summary>
+            /// The WM_TESTING = 0x0040.
+            /// </summary>
+            WM_TESTING = 0x0040,
+
+            /// <summary>
             /// The WM_COMPACTING = 0x0041.
             /// </summary>
             WM_COMPACTING = 0x0041,
+
+            /// <summary>
+            /// The WM_OTHERWINDOWCREATED = 0x0042.
+            /// </summary>
+            WM_OTHERWINDOWCREATED = 0x0042,
+
+            /// <summary>
+            /// The WM_OTHERWINDOWDESTROYED = 0x0043.
+            /// </summary>
+            WM_OTHERWINDOWDESTROYED = 0x0043,
 
             /// <summary>
             /// The WM_COMMNOTIFY = 0x0044.
@@ -307,6 +385,11 @@ internal static partial class Interop
             WM_POWER = 0x0048,
 
             /// <summary>
+            /// The WM_COPYGLOBALDATA = 0x0049
+            /// </summary>
+            WM_COPYGLOBALDATA = 0x0049,
+
+            /// <summary>
             /// The WM_COPYDATA = 0x004A.
             /// </summary>
             WM_COPYDATA = 0x004A,
@@ -317,9 +400,19 @@ internal static partial class Interop
             WM_CANCELJOURNAL = 0x004B,
 
             /// <summary>
+            /// The WM_KEYF1 = 0x004d.
+            /// </summary>
+            WM_KEYF1 = 0x004d,
+
+            /// <summary>
             /// The WM_NOTIFY = 0x004E.
             /// </summary>
             WM_NOTIFY = 0x004E,
+
+            /// <summary>
+            /// The WM_ACCESS_WINDOW = 0x004f.
+            /// </summary>
+            WM_ACCESS_WINDOW = 0x004f,
 
             /// <summary>
             /// The WM_INPUTLANGCHANGEREQUEST = 0x0050.
@@ -350,6 +443,16 @@ internal static partial class Interop
             /// The WM_NOTIFYFORMAT = 0x0055.
             /// </summary>
             WM_NOTIFYFORMAT = 0x0055,
+
+            /// <summary>
+            /// The WM_FINALDESTROY = 0x0070.
+            /// </summary>
+            WM_FINALDESTROY = 0x0070,
+
+            /// <summary>
+            /// The WM_MEASUREITEM_CLIENTDATA = 0x0071.
+            /// </summary>
+            WM_MEASUREITEM_CLIENTDATA = 0x0071,
 
             /// <summary>
             /// The WM_CONTEXTMENU = 0x007B.
@@ -422,6 +525,56 @@ internal static partial class Interop
             WM_SYNCPAINT = 0x0088,
 
             /// <summary>
+            /// The WM_SYNCTASK = 0x0089.
+            /// </summary>
+            WM_SYNCTASK = 0x0089,
+
+            /// <summary>
+            /// The WM_KLUDGEMINRECT = 0x008B.
+            /// </summary>
+            WM_KLUDGEMINRECT = 0x008B,
+
+            /// <summary>
+            /// The WM_LPKDRAWSWITCHWND = 0x008C.
+            /// </summary>
+            WM_LPKDRAWSWITCHWND = 0x008C,
+
+            /// <summary>
+            /// The WM_UAHDESTROYWINDOW = 0x0090.
+            /// </summary>
+            WM_UAHDESTROYWINDOW = 0x0090,
+
+            /// <summary>
+            /// The WM_UAHDRAWMENU = 0x0091.
+            /// </summary>
+            WM_UAHDRAWMENU = 0x0091,
+
+            /// <summary>
+            /// The WM_UAHDRAWMENUITEM = 0x0092.
+            /// </summary>
+            WM_UAHDRAWMENUITEM = 0x0092,
+
+            /// <summary>
+            /// The WM_UAHINITMENU = 0x0093.
+            /// </summary>
+            WM_UAHINITMENU = 0x0093,
+
+            /// <summary>
+            /// The WM_UAHMEASUREMENUITEM = 0x0094.
+            /// </summary>
+            WM_UAHMEASUREMENUITEM = 0x0094,
+
+            /// <summary>
+            /// The WM_UAHNCPAINTMENUPOPUP = 0x0095.
+            /// </summary>
+            WM_UAHNCPAINTMENUPOPUP = 0x0095,
+
+            /// <summary>
+            /// The WM_UAHUPDATE = 0x0096.
+            /// </summary>
+            WM_UAHUPDATE = 0x0096,
+
+            /// <summary>
             /// The WM_NCMOUSEMOVE = 0x00A0.
             /// </summary>
             WM_NCMOUSEMOVE = 0x00A0,
@@ -487,6 +640,16 @@ internal static partial class Interop
             WM_NCXBUTTONDBLCLK = 0x00AD,
 
             /// <summary>
+            /// The WM_NCUAHDRAWCAPTION = 0x00AE.
+            /// </summary>
+            WM_NCUAHDRAWCAPTION = 0x00AE,
+
+            /// <summary>
+            /// The WM_NCUAHDRAWFRAME = 0x00AF.
+            /// </summary>
+            WM_NCUAHDRAWFRAME = 0x00AF,
+
+            /// <summary>
             /// The WM_INPUT_DEVICE_CHANGE = 0x00FE.
             /// </summary>
             WM_INPUT_DEVICE_CHANGE = 0x00FE,
@@ -495,11 +658,6 @@ internal static partial class Interop
             /// The WM_INPUT = 0x00FF.
             /// </summary>
             WM_INPUT = 0x00FF,
-
-            /// <summary>
-            /// The WM_KEYFIRST = 0x0100.
-            /// </summary>
-            WM_KEYFIRST = 0x0100,
 
             /// <summary>
             /// The WM_KEYDOWN = 0x0100.
@@ -542,14 +700,29 @@ internal static partial class Interop
             WM_SYSDEADCHAR = 0x0107,
 
             /// <summary>
+            /// The WM_YOMICHAR = 0x0108.
+            /// </summary>
+            WM_YOMICHAR = 0x0108,
+
+            /// <summary>
             /// The WM_UNICHAR = 0x0109.
             /// </summary>
             WM_UNICHAR = 0x0109,
 
             /// <summary>
-            /// The WM_KEYLAST = 0x0109.
+            /// The WM_CONVERTREQUEST = 0x010A.
             /// </summary>
-            WM_KEYLAST = 0x0109,
+            WM_CONVERTREQUEST = 0x010A,
+
+            /// <summary>
+            /// The WM_CONVERTRESULT = 0x010B.
+            /// </summary>
+            WM_CONVERTRESULT = 0x010B,
+
+            /// <summary>
+            /// The WM_INTERIM = 0x010C.
+            /// </summary>
+            WM_INTERIM = 0x010C,
 
             /// <summary>
             /// The WM_IME_STARTCOMPOSITION = 0x010D.
@@ -565,11 +738,6 @@ internal static partial class Interop
             /// The WM_IME_COMPOSITION = 0x010F.
             /// </summary>
             WM_IME_COMPOSITION = 0x010F,
-
-            /// <summary>
-            /// The WM_IME_KEYLAST = 0x010F.
-            /// </summary>
-            WM_IME_KEYLAST = 0x010F,
 
             /// <summary>
             /// The WM_INITDIALOG = 0x0110.
@@ -612,14 +780,29 @@ internal static partial class Interop
             WM_INITMENUPOPUP = 0x0117,
 
             /// <summary>
-            /// The wm gesture
+            /// The WM_SYSTIMER = 0x0118.
+            /// </summary>
+            WM_SYSTIMER = 0x0118,
+
+            /// <summary>
+            /// The WM_GESTURE = 0x0119.
             /// </summary>
             WM_GESTURE = 0x0119,
 
             /// <summary>
-            /// The wm gesturenotify
+            /// The WM_GESTURENOTIFY = 0x011A.
             /// </summary>
             WM_GESTURENOTIFY = 0x011A,
+
+            /// <summary>
+            /// WM_GESTUREINPUT = 0x011B
+            /// </summary>
+            WM_GESTUREINPUT = 0x011B,
+
+            /// <summary>
+            /// The WM_GESTURENOTIFIED = 0x011c.
+            /// </summary>
+            WM_GESTURENOTIFIED = 0x011c,
 
             /// <summary>
             /// The WM_MENUSELECT = 0x011F.
@@ -677,6 +860,11 @@ internal static partial class Interop
             WM_QUERYUISTATE = 0x0129,
 
             /// <summary>
+            /// The WM_LBTRACKPOINT = 0x0131.
+            /// </summary>
+            WM_LBTRACKPOINT = 0x0131,
+
+            /// <summary>
             /// The WM_CTLCOLORMSGBOX = 0x0132.
             /// </summary>
             WM_CTLCOLORMSGBOX = 0x0132,
@@ -710,16 +898,6 @@ internal static partial class Interop
             /// The WM_CTLCOLORSTATIC = 0x0138.
             /// </summary>
             WM_CTLCOLORSTATIC = 0x0138,
-
-            /// <summary>
-            /// The MN_GETHMENU = 0x01E1.
-            /// </summary>
-            MN_GETHMENU = 0x01E1,
-
-            /// <summary>
-            /// The WM_MOUSEFIRST = 0x0200.
-            /// </summary>
-            WM_MOUSEFIRST = 0x0200,
 
             /// <summary>
             /// The WM_MOUSEMOVE = 0x0200.
@@ -892,6 +1070,36 @@ internal static partial class Interop
             WM_MDIGETACTIVE = 0x0229,
 
             /// <summary>
+            /// The WM_DROPOBJECT = 0x022A
+            /// </summary>
+            WM_DROPOBJECT = 0x022A,
+
+            /// <summary>
+            /// The WM_QUERYDROPOBJECT = 0x022B.
+            /// </summary>
+            WM_QUERYDROPOBJECT = 0x022B,
+
+            /// <summary>
+            /// The WM_BEGINDRAG = 0x022C.
+            /// </summary>
+            WM_BEGINDRAG = 0x022C,
+
+            /// <summary>
+            /// The WM_DRAGLOOP = 0x022D.
+            /// </summary>
+            WM_DRAGLOOP = 0x022D,
+
+            /// <summary>
+            /// The WM_DRAGSELECT = 0x022E.
+            /// </summary>
+            WM_DRAGSELECT = 0x022E,
+
+            /// <summary>
+            /// The WM_DRAGMOVE = 0x022F.
+            /// </summary>
+            WM_DRAGMOVE = 0x022F,
+
+            /// <summary>
             /// The WM_MDISETMENU = 0x0230.
             /// </summary>
             WM_MDISETMENU = 0x0230,
@@ -917,9 +1125,139 @@ internal static partial class Interop
             WM_MDIREFRESHMENU = 0x0234,
 
             /// <summary>
-            /// The wm touch message
+            /// The WM_POINTERDEVICECHANGE = 0x0238.
+            /// </summary>
+            WM_POINTERDEVICECHANGE = 0x0238,
+
+            /// <summary>
+            /// The WM_POINTERDEVICEINRANGE = 0x0239.
+            /// </summary>
+            WM_POINTERDEVICEINRANGE = 0x0239,
+
+            /// <summary>
+            /// The WM_POINTERDEVICEOUTOFRANGE = 0x023A.
+            /// </summary>
+            WM_POINTERDEVICEOUTOFRANGE = 0x023A,
+
+            /// <summary>
+            /// The WM_STOPINERTIA = 0x023B.
+            /// </summary>
+            WM_STOPINERTIA = 0x023B,
+
+            /// <summary>
+            /// The WM_ENDINERTIA = 0x023C.
+            /// </summary>
+            WM_ENDINERTIA = 0x023C,
+
+            /// <summary>
+            /// The WM_EDGYINERTIA = 0x023D.
+            /// </summary>
+            WM_EDGYINERTIA = 0x023D,
+
+            /// <summary>
+            /// The WM_TOUCH = 0x0240.
             /// </summary>
             WM_TOUCH = 0x0240,
+
+            /// <summary>
+            /// The WM_NCPOINTERUPDATE = 0x0241.
+            /// </summary>
+            WM_NCPOINTERUPDATE = 0x0241,
+
+            /// <summary>
+            /// The WM_NCPOINTERDOWN = 0x0242.
+            /// </summary>
+            WM_NCPOINTERDOWN = 0x0242,
+
+            /// <summary>
+            /// The WM_NCPOINTERUP = 0x0243.
+            /// </summary>
+            WM_NCPOINTERUP = 0x0243,
+
+            /// <summary>
+            /// The WM_NCPOINTERLAST = 0x0244.
+            /// </summary>
+            WM_NCPOINTERLAST = 0x0244,
+
+            /// <summary>
+            /// The WM_POINTERUPDATE = 0x0245.
+            /// </summary>
+            WM_POINTERUPDATE = 0x0245,
+
+            /// <summary>
+            /// The WM_POINTERDOWN = 0x0246.
+            /// </summary>
+            WM_POINTERDOWN = 0x0246,
+
+            /// <summary>
+            /// The WM_POINTERUP = 0x0247.
+            /// </summary>
+            WM_POINTERUP = 0x0247,
+
+            /// <summary>
+            /// The WM_POINTERENTER = 0x0249.
+            /// </summary>
+            WM_POINTERENTER = 0x0249,
+
+            /// <summary>
+            /// The WM_POINTERLEAVE = 0x024A.
+            /// </summary>
+            WM_POINTERLEAVE = 0x024A,
+
+            /// <summary>
+            /// The WM_POINTERACTIVATE = 0x024B.
+            /// </summary>
+            WM_POINTERACTIVATE = 0x024B,
+
+            /// <summary>
+            /// The WM_POINTERCAPTURECHANGED = 0x024C.
+            /// </summary>
+            WM_POINTERCAPTURECHANGED = 0x024C,
+
+            /// <summary>
+            /// The WM_TOUCHHITTESTING = 0x024D.
+            /// </summary>
+            WM_TOUCHHITTESTING = 0x024D,
+
+            /// <summary>
+            /// The WM_POINTERWHEEL = 0x024E.
+            /// </summary>
+            WM_POINTERWHEEL = 0x024E,
+
+            /// <summary>
+            /// The WM_POINTERHWHEEL = 0x024F.
+            /// </summary>
+            WM_POINTERHWHEEL = 0x024F,
+
+            /// <summary>
+            /// The WM_POINTERLAST = 0x0257.
+            /// </summary>
+            WM_POINTERLAST = 0x0257,
+
+            /// <summary>
+            /// The WM_VISIBILITYCHANGED = 0x0270.
+            /// </summary>
+            WM_VISIBILITYCHANGED = 0x0270,
+
+            /// <summary>
+            /// The WM_VIEWSTATECHANGED = 0x0271.
+            /// </summary>
+            WM_VIEWSTATECHANGED = 0x0271,
+
+            /// <summary>
+            /// The WM_UNREGISTER_WINDOW_SERVICES = 0x0272.
+            /// </summary>
+            WM_UNREGISTER_WINDOW_SERVICES = 0x0272,
+
+            /// <summary>
+            /// The WM_CONSOLIDATED = 0x0273.
+            /// </summary>
+            WM_CONSOLIDATED = 0x0273,
+
+            /// <summary>
+            /// The WM_IME_REPORT = 0x0280.
+            /// </summary>
+            WM_IME_REPORT = 0x0280,
 
             /// <summary>
             /// The WM_IME_SETCONTEXT = 0x0281.
@@ -952,6 +1290,11 @@ internal static partial class Interop
             WM_IME_CHAR = 0x0286,
 
             /// <summary>
+            /// The WM_IME_SYSTEM = 0x0287.
+            /// </summary>
+            WM_IME_SYSTEM = 0x0287,
+
+            /// <summary>
             /// The WM_IME_REQUEST = 0x0288.
             /// </summary>
             WM_IME_REQUEST = 0x0288,
@@ -967,14 +1310,9 @@ internal static partial class Interop
             WM_IME_KEYUP = 0x0291,
 
             /// <summary>
-            /// The WM_MOUSEHOVER = 0x02A1.
+            /// The WM_KANJILAST = 0x029F
             /// </summary>
-            WM_MOUSEHOVER = 0x02A1,
-
-            /// <summary>
-            /// The WM_MOUSELEAVE = 0x02A3.
-            /// </summary>
-            WM_MOUSELEAVE = 0x02A3,
+            WM_KANJILAST = 0x029F,
 
             /// <summary>
             /// The WM_NCMOUSEHOVER = 0x02A0.
@@ -982,9 +1320,24 @@ internal static partial class Interop
             WM_NCMOUSEHOVER = 0x02A0,
 
             /// <summary>
+            /// The WM_MOUSEHOVER = 0x02A1.
+            /// </summary>
+            WM_MOUSEHOVER = 0x02A1,
+
+            /// <summary>
             /// The WM_NCMOUSELEAVE = 0x02A2.
             /// </summary>
             WM_NCMOUSELEAVE = 0x02A2,
+
+            /// <summary>
+            /// The WM_MOUSELEAVE = 0x02A3.
+            /// </summary>
+            WM_MOUSELEAVE = 0x02A3,
+
+            /// <summary>
+            /// The WM_TRACKMOUSEEVENT_LAST = 0x02AF.
+            /// </summary>
+            WM_TRACKMOUSEEVENT_LAST = 0x02AF,
 
             /// <summary>
             /// The WM_WTSSESSION_CHANGE = 0x02B1.
@@ -994,12 +1347,42 @@ internal static partial class Interop
             /// <summary>
             /// The WM_TABLET_FIRST = 0x02c0.
             /// </summary>
-            WM_TABLET_FIRST = 0x02c0,
+            WM_TABLET_FIRST = 0x02C0,
 
             /// <summary>
-            /// The WM_TABLET_LAST = 0x02df.
+            /// The WM_POINTERDEVICEADDED = 0x02C8.
             /// </summary>
-            WM_TABLET_LAST = 0x02df,
+            WM_POINTERDEVICEADDED = 0x02C8,
+
+            /// <summary>
+            /// The WM_POINTERDEVICEDELETED = 0x02C9.
+            /// </summary>
+            WM_POINTERDEVICEDELETED = 0x02C9,
+
+            /// <summary>
+            /// The WM_FLICK = 0x02CB.
+            /// </summary>
+            WM_FLICK = 0x02CB,
+
+            /// <summary>
+            /// The WM_FLICKINTERNAL = 0x02CD.
+            /// </summary>
+            WM_FLICKINTERNAL = 0x02CD,
+
+            /// <summary>
+            /// The WM_BRIGHTNESSCHANGED = 0x02CE.
+            /// </summary>
+            WM_BRIGHTNESSCHANGED = 0x02CE,
+
+            /// <summary>
+            /// The WM_TABLET_LAST = 0x02DF.
+            /// </summary>
+            WM_TABLET_LAST = 0x02DF,
+
+            /// <summary>
+            /// The WM_DPICHANGED = 0x02E0.
+            /// </summary>
+            WM_DPICHANGED = 0x02E0,
 
             /// <summary>
             /// The WM_CUT = 0x0300.
@@ -1097,6 +1480,26 @@ internal static partial class Interop
             WM_HOTKEY = 0x0312,
 
             /// <summary>
+            /// The WM_SYSMENU = 0x0313
+            /// </summary>
+            WM_SYSMENU = 0x0313,
+
+            /// <summary>
+            /// The WM_HOOKMSG = 0x0314.
+            /// </summary>
+            WM_HOOKMSG = 0x0314,
+
+            /// <summary>
+            /// The WM_EXITPROCESS = 0x0315.
+            /// </summary>
+            WM_EXITPROCESS = 0x0315,
+
+            /// <summary>
+            /// The WM_WAKETHREAD = 0x0316.
+            /// </summary>
+            WM_WAKETHREAD = 0x0316,
+
+            /// <summary>
             /// The WM_PRINT = 0x0317.
             /// </summary>
             WM_PRINT = 0x0317,
@@ -1115,6 +1518,16 @@ internal static partial class Interop
             /// The WM_THEMECHANGED = 0x031A.
             /// </summary>
             WM_THEMECHANGED = 0x031A,
+
+            /// <summary>
+            /// The WM_UAHINIT = 0x031B.
+            /// </summary>
+            WM_UAHINIT = 0x031B,
+
+            /// <summary>
+            /// The WM_DESKTOPNOTIFY = 0x031C.
+            /// </summary>
+            WM_DESKTOPNOTIFY = 0x031C,
 
             /// <summary>
             /// The WM_CLIPBOARDUPDATE = 0x031D.
@@ -1142,9 +1555,104 @@ internal static partial class Interop
             WM_DWMWINDOWMAXIMIZEDCHANGE = 0x0321,
 
             /// <summary>
+            /// The WM_DWMEXILEFRAME = 0x0322.
+            /// </summary>
+            WM_DWMEXILEFRAME = 0x0322,
+
+            /// <summary>
+            /// The WM_DWMSENDICONICTHUMBNAIL = 0x0323.
+            /// </summary>
+            WM_DWMSENDICONICTHUMBNAIL = 0x0323,
+
+            /// <summary>
+            /// The WM_MAGNIFICATION_STARTED = 0x0324.
+            /// </summary>
+            WM_MAGNIFICATION_STARTED = 0x0324,
+
+            /// <summary>
+            /// The WM_MAGNIFICATION_ENDED = 0x0325.
+            /// </summary>
+            WM_MAGNIFICATION_ENDED = 0x0325,
+
+            /// <summary>
+            /// The WM_DWMSENDICONICLIVEPREVIEWBITMAP = 0x0326.
+            /// </summary>
+            WM_DWMSENDICONICLIVEPREVIEWBITMAP = 0x0326,
+
+            /// <summary>
+            /// The WM_DWMTHUMBNAILSIZECHANGED = 0x0327.
+            /// </summary>
+            WM_DWMTHUMBNAILSIZECHANGED = 0x0327,
+
+            /// <summary>
+            /// The WM_MAGNIFICATION_OUTPUT = 0x0328.
+            /// </summary>
+            WM_MAGNIFICATION_OUTPUT = 0x0328,
+
+            /// <summary>
+            /// The WM_BSDRDATA = 0x0329.
+            /// </summary>
+            WM_BSDRDATA = 0x0329,
+
+            /// <summary>
+            /// The WM_DWMTRANSITIONSTATECHANGED = 0x032A.
+            /// </summary>
+            WM_DWMTRANSITIONSTATECHANGED = 0x032A,
+
+            /// <summary>
+            /// The WM_KEYBOARDCORRECTIONCALLOUT = 0x032C.
+            /// </summary>
+            WM_KEYBOARDCORRECTIONCALLOUT = 0x032C,
+
+            /// <summary>
+            /// The WM_KEYBOARDCORRECTIONACTION = 0x032D.
+            /// </summary>
+            WM_KEYBOARDCORRECTIONACTION = 0x032D,
+
+            /// <summary>
+            /// The WM_UIACTION = 0x032E.
+            /// </summary>
+            WM_UIACTION = 0x032E,
+
+            /// <summary>
+            /// The WM_ROUTED_UI_EVENT = 0x032F.
+            /// </summary>
+            WM_ROUTED_UI_EVENT = 0x032F,
+
+            /// <summary>
+            /// The WM_MEASURECONTROL = 0x0330.
+            /// </summary>
+            WM_MEASURECONTROL = 0x0330,
+
+            /// <summary>
+            /// The WM_GETACTIONTEXT = 0x0331.
+            /// </summary>
+            WM_GETACTIONTEXT = 0x0331,
+
+            /// <summary>
+            /// The WM_FORWARDKEYDOWN = 0x0333.
+            /// </summary>
+            WM_FORWARDKEYDOWN = 0x0333,
+
+            /// <summary>
+            /// The WM_FORWARDKEYUP = 0x0334.
+            /// </summary>
+            WM_FORWARDKEYUP = 0x0334,
+
+            /// <summary>
+            /// The WM_CE_ONLY_LAST = 0x033E.
+            /// </summary>
+            WM_CE_ONLY_LAST = 0x033E,
+
+            /// <summary>
             /// The WM_GETTITLEBARINFOEX = 0x033F.
             /// </summary>
             WM_GETTITLEBARINFOEX = 0x033F,
+
+            /// <summary>
+            /// The WM_NOTIFYWOW = 0x0340.
+            /// </summary>
+            WM_NOTIFYWOW = 0x0340,
 
             /// <summary>
             /// The WM_HANDHELDFIRST = 0x0358.
@@ -1172,9 +1680,191 @@ internal static partial class Interop
             WM_PENWINFIRST = 0x0380,
 
             /// <summary>
+            /// The WM_RCRESULT = 0x0381.
+            /// </summary>
+            WM_RCRESULT = 0x0381,
+
+            /// <summary>
+            /// The WM_HOOKRCRESULT = 0x0382.
+            /// </summary>
+            WM_HOOKRCRESULT = 0x0382,
+
+            /// <summary>
+            /// The WM_GLOBALRCCHANGE = 0x0383.
+            /// </summary>
+            WM_GLOBALRCCHANGE = 0x0383,
+
+            /// <summary>
+            /// The WM_SKB = 0x0384.
+            /// </summary>
+            WM_SKB = 0x0384,
+
+            /// <summary>
+            /// The WM_HEDITCTL = 0x0385.
+            /// </summary>
+            WM_HEDITCTL = 0x0385,
+
+            /// <summary>
+            /// The WM_PENMISC = 0x0386.
+            /// </summary>
+            WM_PENMISC = 0x0386,
+
+            /// <summary>
+            /// The WM_CTLINIT = 0x0387.
+            /// </summary>
+            WM_CTLINIT = 0x0387,
+
+            /// <summary>
+            /// The WM_PENEVENT = 0x0388.
+            /// </summary>
+            WM_PENEVENT = 0x0388,
+
+            /// <summary>
             /// The WM_PENWINLAST = 0x038F.
             /// </summary>
             WM_PENWINLAST = 0x038F,
+
+            /// <summary>
+            /// The WM_COALESCE_FIRST = 0x0390.
+            /// </summary>
+            WM_COALESCE_FIRST = 0x0390,
+
+            /// <summary>
+            /// The WM_COALESCE_LAST = 0x039F.
+            /// </summary>
+            WM_COALESCE_LAST = 0x039F,
+
+            /// <summary>
+            /// The WM_USER = 0x0400.
+            /// </summary>
+            [Browsable(false)]
+            [EditorBrowsable(EditorBrowsableState.Never)]
+            WM_USER = 0x0400,
+
+            /// <summary>
+            /// The WM_PSD_PAGESETUPDLG = 0x0400.
+            /// </summary>
+            WM_PSD_PAGESETUPDLG = WM_USER,
+
+            /// <summary>
+            /// The WM_CHOOSEFONT_GETLOGFONT = 0x0401.
+            /// </summary>
+            WM_CHOOSEFONT_GETLOGFONT = 0x0401,
+
+            /// <summary>
+            /// The WM_PSD_FULLPAGERECT = 0x0401.
+            /// </summary>
+            WM_PSD_FULLPAGERECT = 0x0401,
+
+            /// <summary>
+            /// The WM_PSD_MINMARGINRECT = 0x0402.
+            /// </summary>
+            WM_PSD_MINMARGINRECT = 0x0402,
+
+            /// <summary>
+            /// The WM_PSD_MARGINRECT = 0x0403.
+            /// </summary>
+            WM_PSD_MARGINRECT = 0x0403,
+
+            /// <summary>
+            /// The WM_PSD_GREEKTEXTRECT = 0x0404.
+            /// </summary>
+            WM_PSD_GREEKTEXTRECT = 0x0404,
+
+            /// <summary>
+            /// The WM_PSD_ENVSTAMPRECT = 0x0405.
+            /// </summary>
+            WM_PSD_ENVSTAMPRECT = 0x0405,
+
+            /// <summary>
+            /// The WM_PSD_YAFULLPAGERECT = 0x0406.
+            /// </summary>
+            WM_PSD_YAFULLPAGERECT = 0x0406,
+
+            /// <summary>
+            /// The WM_CAP_UNICODE_START = 0x0464.
+            /// </summary>
+            WM_CAP_UNICODE_START = 0x0464,
+
+            /// <summary>
+            /// The WM_CHOOSEFONT_SETLOGFONT = 0x0465
+            /// </summary>
+            WM_CHOOSEFONT_SETLOGFONT = 0x0465,
+
+            /// <summary>
+            /// The WM_CHOOSEFONT_SETFLAGS = 0x0466.
+            /// </summary>
+            WM_CHOOSEFONT_SETFLAGS = 0x0466,
+
+            /// <summary>
+            /// The WM_CAP_SET_CALLBACK_STATUSW = 0x0467.
+            /// </summary>
+            WM_CAP_SET_CALLBACK_STATUSW = 0x0467,
+
+            /// <summary>
+            /// The WM_CAP_DRIVER_GET_NAMEW = 0x0470.
+            /// </summary>
+            WM_CAP_DRIVER_GET_NAMEW = 0x0470,
+
+            /// <summary>
+            /// The WM_CAP_DRIVER_GET_VERSIONW = 0x0471.
+            /// </summary>
+            WM_CAP_DRIVER_GET_VERSIONW = 0x0471,
+
+            /// <summary>
+            /// The WM_CAP_FILE_SET_CAPTURE_FILEW = 0x0478.
+            /// </summary>
+            WM_CAP_FILE_SET_CAPTURE_FILEW = 0x0478,
+
+            /// <summary>
+            /// The WM_CAP_FILE_GET_CAPTURE_FILEW = 0x0479.
+            /// </summary>
+            WM_CAP_FILE_GET_CAPTURE_FILEW = 0x0479,
+
+            /// <summary>
+            /// The WM_CAP_FILE_SAVEASW = 0x047B.
+            /// </summary>
+            WM_CAP_FILE_SAVEASW = 0x047B,
+
+            /// <summary>
+            /// The WM_CAP_FILE_SAVEDIBW = 0X047D.
+            /// </summary>
+            WM_CAP_FILE_SAVEDIBW = 0X047D,
+
+            /// <summary>
+            /// The WM_CAP_SET_MCI_DEVICEW = 0x04A6.
+            /// </summary>
+            WM_CAP_SET_MCI_DEVICEW = 0x04A6,
+
+            /// <summary>
+            /// The WM_CAP_GET_MCI_DEVICEW = 0x04A7.
+            /// </summary>
+            WM_CAP_GET_MCI_DEVICEW = 0x04A7,
+
+            /// <summary>
+            /// The WM_CAP_PAL_OPENW = 0x04B4.
+            /// </summary>
+            WM_CAP_PAL_OPENW = 0x04B4,
+
+            /// <summary>
+            /// The WM_CAP_PAL_SAVEW = 0x04B5.
+            /// </summary>
+            WM_CAP_PAL_SAVEW = 0x04B5,
+
+            /// <summary>
+            /// The WM_REFLECT = WM_USER + 0x1C00.
+            /// </summary>
+            WM_REFLECT = WM_USER + 0x1C00,
+
+            /// <summary>
+            /// The WM_CPL_LAUNCH = 0x07e8.
+            /// </summary>
+            WM_CPL_LAUNCH = 0x07e8,
+
+            /// <summary>
+            /// The WM_CPL_LAUNCHED = 0x07e9.
+            /// </summary>
+            WM_CPL_LAUNCHED = 0x07e9,
 
             /// <summary>
             /// The WM_APP = 0x8000.
@@ -1182,14 +1872,9 @@ internal static partial class Interop
             WM_APP = 0x8000,
 
             /// <summary>
-            /// The WM_USER = 0x0400.
+            /// The WM_RASDIALEVENT = 0xCCCD.
             /// </summary>
-            WM_USER = 0x0400,
-
-            /// <summary>
-            /// The WM_REFLECT = WM_USER + 0x1C00.
-            /// </summary>
-            WM_REFLECT = WM_USER + 0x1C00,
+            WM_RASDIALEVENT = 0xCCCD,
         }
     }
 }

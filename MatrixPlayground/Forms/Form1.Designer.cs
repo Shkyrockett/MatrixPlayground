@@ -71,6 +71,7 @@ namespace MatrixPlayground
             // 
             this.canvasControl.BackColor = System.Drawing.SystemColors.Window;
             this.canvasControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.canvasControl.Font = new System.Drawing.Font("Cambria Math", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.canvasControl.Location = new System.Drawing.Point(0, 0);
             this.canvasControl.Name = "canvasControl";
             this.canvasControl.RenderBoundaries = false;

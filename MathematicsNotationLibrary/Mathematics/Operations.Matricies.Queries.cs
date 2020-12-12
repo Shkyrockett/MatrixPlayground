@@ -9,9 +9,9 @@
 // <remarks>
 // </remarks>
 
-using Microsoft.Toolkit.HighPerformance.Memory;
 using System;
 using System.Runtime.CompilerServices;
+using Microsoft.Toolkit.HighPerformance.Memory;
 
 namespace MathematicsNotationLibrary
 {

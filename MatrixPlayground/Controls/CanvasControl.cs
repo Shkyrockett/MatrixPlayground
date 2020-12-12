@@ -9,7 +9,6 @@
 // <remarks>
 // </remarks>
 
-using MathematicsNotationLibrary;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,7 +17,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
-using static Interop;
+using MathematicsNotationLibrary;
 using static Interop.User32;
 
 namespace MatrixPlayground
@@ -609,7 +608,7 @@ namespace MatrixPlayground
                     var cell = (NumericFactor)hotSpots[spot];
                     numericUpDown1.Visible = true;
                     numericUpDown1.Value = (decimal)cell.Value;
-                    numericUpDown1.Font = new Font(Font.FontFamily, Font.Size * cell.Scale.Value * scale, Font.Style);
+                    numericUpDown1.Font = new Font("Cambria", Font.Size * cell.Scale.Value * scale, Font.Style);
                     numericUpDown1.ForeColor = Color.Black;
                     numericUpDown1.Bounds = Rectangle.Truncate(new(Mathematics.ObjectToScreenTransposedMatrix(panPoint, spot.Location, scale), new SizeF(spot.Size.Width + spot.Size.Height / 2, spot.Size.Height) * scale));
                     SetCell = (v) => cell.Value = v;
