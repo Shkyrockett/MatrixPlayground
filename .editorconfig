@@ -4,7 +4,10 @@
 dotnet_diagnostic.IDE0044.severity = silent
 
 # IDE0011: Add braces
-dotnet_diagnostic.IDE0011.severity = none
+dotnet_diagnostic.IDE0011.severity = silent
 
 # CS8073: The result of the expression is always the same since a value of this type is never equal to 'null'
-dotnet_diagnostic.CS8073.severity = none
+dotnet_diagnostic.CS8073.severity = silent
+
+# CA1069: Enums values should not be duplicated
+dotnet_diagnostic.CA1069.severity = silent

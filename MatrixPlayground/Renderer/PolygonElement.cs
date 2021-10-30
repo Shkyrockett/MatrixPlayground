@@ -1,5 +1,5 @@
 ﻿// <copyright file="PolygonElement.cs" company="Shkyrockett" >
-//     Copyright © 2020 Shkyrockett. All rights reserved.
+//     Copyright © 2020 - 2021 Shkyrockett. All rights reserved.
 // </copyright>
 // <author id="shkyrockett">Shkyrockett</author>
 // <license>
@@ -9,12 +9,11 @@
 // <remarks>
 // </remarks>
 
-namespace MatrixPlayground
+namespace MatrixPlayground;
+
+/// <summary>
+/// 
+/// </summary>
+public class PolygonElement
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    public class PolygonElement
-    {
-    }
 }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29911.98
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31606.5
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatrixPlayground", "MatrixPlayground\MatrixPlayground.csproj", "{243BDC07-B115-4AA2-BB29-D2BCF6156151}"
 EndProject
@@ -18,17 +18,37 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{243BDC07-B115-4AA2-BB29-D2BCF6156151}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{243BDC07-B115-4AA2-BB29-D2BCF6156151}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{243BDC07-B115-4AA2-BB29-D2BCF6156151}.Debug|x64.ActiveCfg = Debug|x64
+		{243BDC07-B115-4AA2-BB29-D2BCF6156151}.Debug|x64.Build.0 = Debug|x64
+		{243BDC07-B115-4AA2-BB29-D2BCF6156151}.Debug|x86.ActiveCfg = Debug|x86
+		{243BDC07-B115-4AA2-BB29-D2BCF6156151}.Debug|x86.Build.0 = Debug|x86
 		{243BDC07-B115-4AA2-BB29-D2BCF6156151}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{243BDC07-B115-4AA2-BB29-D2BCF6156151}.Release|Any CPU.Build.0 = Release|Any CPU
+		{243BDC07-B115-4AA2-BB29-D2BCF6156151}.Release|x64.ActiveCfg = Release|x64
+		{243BDC07-B115-4AA2-BB29-D2BCF6156151}.Release|x64.Build.0 = Release|x64
+		{243BDC07-B115-4AA2-BB29-D2BCF6156151}.Release|x86.ActiveCfg = Release|x86
+		{243BDC07-B115-4AA2-BB29-D2BCF6156151}.Release|x86.Build.0 = Release|x86
 		{70D39496-1D29-47C2-85D8-65775623000D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{70D39496-1D29-47C2-85D8-65775623000D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70D39496-1D29-47C2-85D8-65775623000D}.Debug|x64.ActiveCfg = Debug|x64
+		{70D39496-1D29-47C2-85D8-65775623000D}.Debug|x64.Build.0 = Debug|x64
+		{70D39496-1D29-47C2-85D8-65775623000D}.Debug|x86.ActiveCfg = Debug|x86
+		{70D39496-1D29-47C2-85D8-65775623000D}.Debug|x86.Build.0 = Debug|x86
 		{70D39496-1D29-47C2-85D8-65775623000D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70D39496-1D29-47C2-85D8-65775623000D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70D39496-1D29-47C2-85D8-65775623000D}.Release|x64.ActiveCfg = Release|x64
+		{70D39496-1D29-47C2-85D8-65775623000D}.Release|x64.Build.0 = Release|x64
+		{70D39496-1D29-47C2-85D8-65775623000D}.Release|x86.ActiveCfg = Release|x86
+		{70D39496-1D29-47C2-85D8-65775623000D}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
