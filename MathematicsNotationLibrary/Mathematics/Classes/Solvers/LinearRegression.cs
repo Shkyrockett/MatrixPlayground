@@ -10,7 +10,6 @@
 // </remarks>
 
 using Microsoft.Toolkit.HighPerformance;
-using System;
 
 namespace MathematicsNotationLibrary;
 

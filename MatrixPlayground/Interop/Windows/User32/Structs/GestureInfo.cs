@@ -9,7 +9,6 @@
 // <remarks>
 // </remarks>
 
-using System;
 using System.Runtime.InteropServices;
 
 /// <summary>

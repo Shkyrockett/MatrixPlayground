@@ -10,7 +10,6 @@
 // </remarks>
 
 using MathematicsNotationLibrary;
-using System.Drawing;
 
 namespace MatrixPlayground;
 

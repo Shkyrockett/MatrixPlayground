@@ -9,8 +9,7 @@
 // <remarks>
 // </remarks>
 
-using System;
-using System.Collections.Generic;
+using System.Numerics;
 using System.Runtime.CompilerServices;
 
 namespace MathematicsNotationLibrary;
@@ -37,7 +36,7 @@ public static partial class Operations
 
         for (int i = 0; i < value.Length; i++)
         {
-            result[i] = TResult.Create(value[i]);
+            result[i] = TResult.CreateChecked(value[i]);
         }
 
         return result;
@@ -60,7 +59,7 @@ public static partial class Operations
 
         for (int i = 0; i < length; i++)
         {
-            result[i] = TResult.Create(value[i]);
+            result[i] = TResult.CreateChecked(value[i]);
         }
 
         return result;
@@ -164,7 +163,7 @@ public static partial class Operations
     /// <param name="value"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static (TResult X, TResult Y)? Cast<T, TResult>(this (T X, T Y) value) where T : INumber<T> where TResult : INumber<TResult> => (TResult.Create(value.X), TResult.Create(value.Y));
+    public static (TResult X, TResult Y)? Cast<T, TResult>(this (T X, T Y) value) where T : INumber<T> where TResult : INumber<TResult> => (TResult.CreateChecked(value.X), TResult.CreateChecked(value.Y));
 
     /// <summary>
     /// 
@@ -194,7 +193,7 @@ public static partial class Operations
     /// <param name="value"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static (TResult X, TResult Y, TResult Z)? Cast<T, TResult>(this (T X, T Y, T Z) value) where T : INumber<T> where TResult : INumber<TResult> => (TResult.Create(value.X), TResult.Create(value.Y), TResult.Create(value.Z));
+    public static (TResult X, TResult Y, TResult Z)? Cast<T, TResult>(this (T X, T Y, T Z) value) where T : INumber<T> where TResult : INumber<TResult> => (TResult.CreateChecked(value.X), TResult.CreateChecked(value.Y), TResult.CreateChecked(value.Z));
 
     /// <summary>
     /// 
@@ -224,7 +223,7 @@ public static partial class Operations
     /// <param name="value"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static (TResult X, TResult Y, TResult Z, TResult W)? Cast<T, TResult>(this (T X, T Y, T Z, T W) value) where T : INumber<T> where TResult : INumber<TResult> => (TResult.Create(value.X), TResult.Create(value.Y), TResult.Create(value.Z), TResult.Create(value.W));
+    public static (TResult X, TResult Y, TResult Z, TResult W)? Cast<T, TResult>(this (T X, T Y, T Z, T W) value) where T : INumber<T> where TResult : INumber<TResult> => (TResult.CreateChecked(value.X), TResult.CreateChecked(value.Y), TResult.CreateChecked(value.Z), TResult.CreateChecked(value.W));
 
     /// <summary>
     /// 
@@ -234,7 +233,7 @@ public static partial class Operations
     /// <param name="value"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static (TResult X, TResult Y, TResult Z, TResult W)? CastSaturating<T, TResult>(this (T X, T Y, T Z, T W) value) where T : INumber<T> where TResult : INumber<TResult> => (TResult.CreateSaturating(value.X), TResult.CreateSaturating(value.Y), TResult.CreateSaturating(value.Z), TResult.Create(value.W));
+    public static (TResult X, TResult Y, TResult Z, TResult W)? CastSaturating<T, TResult>(this (T X, T Y, T Z, T W) value) where T : INumber<T> where TResult : INumber<TResult> => (TResult.CreateSaturating(value.X), TResult.CreateSaturating(value.Y), TResult.CreateSaturating(value.Z), TResult.CreateChecked(value.W));
 
     /// <summary>
     /// 
@@ -244,7 +243,7 @@ public static partial class Operations
     /// <param name="value"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static (TResult X, TResult Y, TResult Z, TResult W)? CastTruncating<T, TResult>(this (T X, T Y, T Z, T W) value) where T : INumber<T> where TResult : INumber<TResult> => (TResult.CreateTruncating(value.X), TResult.CreateTruncating(value.Y), TResult.CreateTruncating(value.Z), TResult.Create(value.W));
+    public static (TResult X, TResult Y, TResult Z, TResult W)? CastTruncating<T, TResult>(this (T X, T Y, T Z, T W) value) where T : INumber<T> where TResult : INumber<TResult> => (TResult.CreateTruncating(value.X), TResult.CreateTruncating(value.Y), TResult.CreateTruncating(value.Z), TResult.CreateChecked(value.W));
 
     /// <summary>
     /// 
@@ -254,7 +253,7 @@ public static partial class Operations
     /// <param name="value"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static (TResult X, TResult Y, TResult Z, TResult W, TResult V)? Cast<T, TResult>(this (T X, T Y, T Z, T W, T V) value) where T : INumber<T> where TResult : INumber<TResult> => (TResult.Create(value.X), TResult.Create(value.Y), TResult.Create(value.Z), TResult.Create(value.W), TResult.Create(value.V));
+    public static (TResult X, TResult Y, TResult Z, TResult W, TResult V)? Cast<T, TResult>(this (T X, T Y, T Z, T W, T V) value) where T : INumber<T> where TResult : INumber<TResult> => (TResult.CreateChecked(value.X), TResult.CreateChecked(value.Y), TResult.CreateChecked(value.Z), TResult.CreateChecked(value.W), TResult.CreateChecked(value.V));
 
     /// <summary>
     /// 
@@ -264,7 +263,7 @@ public static partial class Operations
     /// <param name="value"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static (TResult X, TResult Y, TResult Z, TResult W, TResult V)? CastSaturating<T, TResult>(this (T X, T Y, T Z, T W, T V) value) where T : INumber<T> where TResult : INumber<TResult> => (TResult.CreateSaturating(value.X), TResult.CreateSaturating(value.Y), TResult.CreateSaturating(value.Z), TResult.Create(value.W), TResult.Create(value.V));
+    public static (TResult X, TResult Y, TResult Z, TResult W, TResult V)? CastSaturating<T, TResult>(this (T X, T Y, T Z, T W, T V) value) where T : INumber<T> where TResult : INumber<TResult> => (TResult.CreateSaturating(value.X), TResult.CreateSaturating(value.Y), TResult.CreateSaturating(value.Z), TResult.CreateChecked(value.W), TResult.CreateChecked(value.V));
 
     /// <summary>
     /// 
@@ -274,7 +273,7 @@ public static partial class Operations
     /// <param name="value"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static (TResult X, TResult Y, TResult Z, TResult W, TResult V)? CastTruncating<T, TResult>(this (T X, T Y, T Z, T W, T V) value) where T : INumber<T> where TResult : INumber<TResult> => (TResult.CreateTruncating(value.X), TResult.CreateTruncating(value.Y), TResult.CreateTruncating(value.Z), TResult.Create(value.W), TResult.Create(value.V));
+    public static (TResult X, TResult Y, TResult Z, TResult W, TResult V)? CastTruncating<T, TResult>(this (T X, T Y, T Z, T W, T V) value) where T : INumber<T> where TResult : INumber<TResult> => (TResult.CreateTruncating(value.X), TResult.CreateTruncating(value.Y), TResult.CreateTruncating(value.Z), TResult.CreateChecked(value.W), TResult.CreateChecked(value.V));
     #endregion
 
     #region Vector Rounding
@@ -287,13 +286,13 @@ public static partial class Operations
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static TResult[] Round<T, TResult>(Span<T> vector, int digits, MidpointRounding mode = MidpointRounding.ToEven)
-        where T : IFloatingPoint<T>
+        where T : IFloatingPointIeee754<T>
         where TResult : INumber<TResult>
     {
         var result = new TResult[vector.Length];
         for (var i = 0; i < vector.Length; i++)
         {
-            result[i] = TResult.Create(T.Round(vector[i], digits, mode));
+            result[i] = TResult.CreateChecked(T.Round(vector[i], digits, mode));
         }
 
         return result;
@@ -309,13 +308,13 @@ public static partial class Operations
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static TResult[] Round<T, TResult>(Span<T> vector, int length, int digits, MidpointRounding mode = MidpointRounding.ToEven)
-        where T : IFloatingPoint<T>
+        where T : IFloatingPointIeee754<T>
         where TResult : INumber<TResult>
     {
         var result = new TResult[length];
         for (var i = 0; i < length; i++)
         {
-            result[i] = TResult.Create(T.Round(vector[i], digits, mode));
+            result[i] = TResult.CreateChecked(T.Round(vector[i], digits, mode));
         }
 
         return result;
@@ -330,10 +329,10 @@ public static partial class Operations
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static (TResult X, TResult Y) Round<T, TResult>((T X, T Y) vector, int digits, MidpointRounding mode = MidpointRounding.ToEven)
-        where T : IFloatingPoint<T>
+        where T : IFloatingPointIeee754<T>
         where TResult : INumber<TResult> => (
-            TResult.Create(T.Round(vector.X, digits, mode)),
-            TResult.Create(T.Round(vector.Y, digits, mode))
+            TResult.CreateChecked(T.Round(vector.X, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.Y, digits, mode))
         );
 
     /// <summary>
@@ -345,11 +344,11 @@ public static partial class Operations
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static (TResult X, TResult Y, TResult Z) Round<T, TResult>((T X, T Y, T Z) vector, int digits, MidpointRounding mode = MidpointRounding.ToEven)
-        where T : IFloatingPoint<T>
+        where T : IFloatingPointIeee754<T>
         where TResult : INumber<TResult> => (
-            TResult.Create(T.Round(vector.X, digits, mode)),
-            TResult.Create(T.Round(vector.Y, digits, mode)),
-            TResult.Create(T.Round(vector.Z, digits, mode))
+            TResult.CreateChecked(T.Round(vector.X, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.Y, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.Z, digits, mode))
         );
 
     /// <summary>
@@ -361,12 +360,12 @@ public static partial class Operations
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static (TResult X, TResult Y, TResult Z, TResult W) Round<T, TResult>((T X, T Y, T Z, T W) vector, int digits, MidpointRounding mode = MidpointRounding.ToEven)
-        where T : IFloatingPoint<T>
+        where T : IFloatingPointIeee754<T>
         where TResult : INumber<TResult> => (
-            TResult.Create(T.Round(vector.X, digits, mode)),
-            TResult.Create(T.Round(vector.Y, digits, mode)),
-            TResult.Create(T.Round(vector.Z, digits, mode)),
-            TResult.Create(T.Round(vector.W, digits, mode))
+            TResult.CreateChecked(T.Round(vector.X, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.Y, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.Z, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.W, digits, mode))
         );
 
     /// <summary>
@@ -378,13 +377,13 @@ public static partial class Operations
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static (TResult X, TResult Y, TResult Z, TResult W, TResult V) Round<T, TResult>((T X, T Y, T Z, T W, T V) vector, int digits, MidpointRounding mode = MidpointRounding.ToEven)
-        where T : IFloatingPoint<T>
+        where T : IFloatingPointIeee754<T>
         where TResult : INumber<TResult> => (
-            TResult.Create(T.Round(vector.X, digits, mode)),
-            TResult.Create(T.Round(vector.Y, digits, mode)),
-            TResult.Create(T.Round(vector.Z, digits, mode)),
-            TResult.Create(T.Round(vector.W, digits, mode)),
-            TResult.Create(T.Round(vector.V, digits, mode))
+            TResult.CreateChecked(T.Round(vector.X, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.Y, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.Z, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.W, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.V, digits, mode))
         );
 
     /// <summary>
@@ -396,14 +395,14 @@ public static partial class Operations
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static (TResult X, TResult Y, TResult Z, TResult W, TResult V, TResult U) Round<T, TResult>((T X, T Y, T Z, T W, T V, T U) vector, int digits, MidpointRounding mode = MidpointRounding.ToEven)
-        where T : IFloatingPoint<T>
+        where T : IFloatingPointIeee754<T>
         where TResult : INumber<TResult> => (
-            TResult.Create(T.Round(vector.X, digits, mode)),
-            TResult.Create(T.Round(vector.Y, digits, mode)),
-            TResult.Create(T.Round(vector.Z, digits, mode)),
-            TResult.Create(T.Round(vector.W, digits, mode)),
-            TResult.Create(T.Round(vector.V, digits, mode)),
-            TResult.Create(T.Round(vector.U, digits, mode))
+            TResult.CreateChecked(T.Round(vector.X, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.Y, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.Z, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.W, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.V, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.U, digits, mode))
         );
 
     /// <summary>
@@ -415,16 +414,16 @@ public static partial class Operations
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static (TResult X, TResult Y, TResult Z, TResult W, TResult V, TResult U, TResult T, TResult S) Round<T, TResult>((T X, T Y, T Z, T W, T V, T U, T T, T S) vector, int digits, MidpointRounding mode = MidpointRounding.ToEven)
-        where T : IFloatingPoint<T>
+        where T : IFloatingPointIeee754<T>
         where TResult : INumber<TResult> => (
-            TResult.Create(T.Round(vector.X, digits, mode)),
-            TResult.Create(T.Round(vector.Y, digits, mode)),
-            TResult.Create(T.Round(vector.Z, digits, mode)),
-            TResult.Create(T.Round(vector.W, digits, mode)),
-            TResult.Create(T.Round(vector.V, digits, mode)),
-            TResult.Create(T.Round(vector.U, digits, mode)),
-            TResult.Create(T.Round(vector.T, digits, mode)),
-            TResult.Create(T.Round(vector.S, digits, mode))
+            TResult.CreateChecked(T.Round(vector.X, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.Y, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.Z, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.W, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.V, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.U, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.T, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.S, digits, mode))
         );
 
     /// <summary>
@@ -444,17 +443,17 @@ public static partial class Operations
         T X, T Y, T Z,
         T W, T V, T U,
         T T, T S, T R) vector, int digits, MidpointRounding mode = MidpointRounding.ToEven)
-        where T : IFloatingPoint<T>
+        where T : IFloatingPointIeee754<T>
         where TResult : INumber<TResult> => (
-            TResult.Create(T.Round(vector.X, digits, mode)),
-            TResult.Create(T.Round(vector.Y, digits, mode)),
-            TResult.Create(T.Round(vector.Z, digits, mode)),
-            TResult.Create(T.Round(vector.W, digits, mode)),
-            TResult.Create(T.Round(vector.V, digits, mode)),
-            TResult.Create(T.Round(vector.U, digits, mode)),
-            TResult.Create(T.Round(vector.T, digits, mode)),
-            TResult.Create(T.Round(vector.S, digits, mode)),
-            TResult.Create(T.Round(vector.R, digits, mode))
+            TResult.CreateChecked(T.Round(vector.X, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.Y, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.Z, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.W, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.V, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.U, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.T, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.S, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.R, digits, mode))
         );
 
     /// <summary>
@@ -475,24 +474,24 @@ public static partial class Operations
         T V, T U, T T, T S,
         T R, T Q, T P, T O,
         T N, T M, T L, T K) vector, int digits, MidpointRounding mode = MidpointRounding.ToEven)
-        where T : IFloatingPoint<T>
+        where T : IFloatingPointIeee754<T>
         where TResult : INumber<TResult> => (
-            TResult.Create(T.Round(vector.X, digits, mode)),
-            TResult.Create(T.Round(vector.Y, digits, mode)),
-            TResult.Create(T.Round(vector.Z, digits, mode)),
-            TResult.Create(T.Round(vector.W, digits, mode)),
-            TResult.Create(T.Round(vector.V, digits, mode)),
-            TResult.Create(T.Round(vector.U, digits, mode)),
-            TResult.Create(T.Round(vector.T, digits, mode)),
-            TResult.Create(T.Round(vector.S, digits, mode)),
-            TResult.Create(T.Round(vector.R, digits, mode)),
-            TResult.Create(T.Round(vector.Q, digits, mode)),
-            TResult.Create(T.Round(vector.P, digits, mode)),
-            TResult.Create(T.Round(vector.O, digits, mode)),
-            TResult.Create(T.Round(vector.N, digits, mode)),
-            TResult.Create(T.Round(vector.M, digits, mode)),
-            TResult.Create(T.Round(vector.L, digits, mode)),
-            TResult.Create(T.Round(vector.K, digits, mode))
+            TResult.CreateChecked(T.Round(vector.X, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.Y, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.Z, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.W, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.V, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.U, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.T, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.S, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.R, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.Q, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.P, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.O, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.N, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.M, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.L, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.K, digits, mode))
         );
 
     /// <summary>
@@ -515,33 +514,33 @@ public static partial class Operations
         T P, T O, T N, T M, T L,
         T K, T J, T I, T H, T G,
         T F, T E, T D, T C, T B) vector, int digits, MidpointRounding mode = MidpointRounding.ToEven)
-        where T : IFloatingPoint<T>
+        where T : IFloatingPointIeee754<T>
         where TResult : INumber<TResult> => (
-            TResult.Create(T.Round(vector.X, digits, mode)),
-            TResult.Create(T.Round(vector.Y, digits, mode)),
-            TResult.Create(T.Round(vector.Z, digits, mode)),
-            TResult.Create(T.Round(vector.W, digits, mode)),
-            TResult.Create(T.Round(vector.V, digits, mode)),
-            TResult.Create(T.Round(vector.U, digits, mode)),
-            TResult.Create(T.Round(vector.T, digits, mode)),
-            TResult.Create(T.Round(vector.S, digits, mode)),
-            TResult.Create(T.Round(vector.R, digits, mode)),
-            TResult.Create(T.Round(vector.Q, digits, mode)),
-            TResult.Create(T.Round(vector.P, digits, mode)),
-            TResult.Create(T.Round(vector.O, digits, mode)),
-            TResult.Create(T.Round(vector.N, digits, mode)),
-            TResult.Create(T.Round(vector.M, digits, mode)),
-            TResult.Create(T.Round(vector.L, digits, mode)),
-            TResult.Create(T.Round(vector.K, digits, mode)),
-            TResult.Create(T.Round(vector.J, digits, mode)),
-            TResult.Create(T.Round(vector.I, digits, mode)),
-            TResult.Create(T.Round(vector.H, digits, mode)),
-            TResult.Create(T.Round(vector.G, digits, mode)),
-            TResult.Create(T.Round(vector.F, digits, mode)),
-            TResult.Create(T.Round(vector.E, digits, mode)),
-            TResult.Create(T.Round(vector.D, digits, mode)),
-            TResult.Create(T.Round(vector.C, digits, mode)),
-            TResult.Create(T.Round(vector.B, digits, mode))
+            TResult.CreateChecked(T.Round(vector.X, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.Y, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.Z, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.W, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.V, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.U, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.T, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.S, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.R, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.Q, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.P, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.O, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.N, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.M, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.L, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.K, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.J, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.I, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.H, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.G, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.F, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.E, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.D, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.C, digits, mode)),
+            TResult.CreateChecked(T.Round(vector.B, digits, mode))
         );
     #endregion
 

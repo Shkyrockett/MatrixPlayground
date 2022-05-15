@@ -10,7 +10,7 @@
 // </remarks>
 
 using Microsoft.Toolkit.HighPerformance;
-using System;
+using System.Numerics;
 using System.Runtime.CompilerServices;
 
 namespace MathematicsNotationLibrary;
@@ -128,7 +128,7 @@ public static partial class Operations
     /// </acknowledgment>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static bool MatricesEquality<T>(Span2D<T> matrix1, Span2D<T> matrix2, int accuracy = 15, MidpointRounding mode = MidpointRounding.ToEven)
-        where T : IFloatingPoint<T>
+        where T : IFloatingPointIeee754<T>
     {
         var rows = matrix1.Height;
         var columns = matrix1.Width;
@@ -198,7 +198,7 @@ public static partial class Operations
     /// </acknowledgment>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static bool MatricesEquality<T>(Span2D<T> matrix1, Span2D<T> matrix2, int rows, int columns, int accuracy = 15, MidpointRounding mode = MidpointRounding.ToEven)
-        where T : IFloatingPoint<T>
+        where T : IFloatingPointIeee754<T>
     {
         for (var i = 0; i < rows; i++)
         {
@@ -297,7 +297,7 @@ public static partial class Operations
     /// </acknowledgment>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static bool IsZeroRounded<T>(Span2D<T> matrix, int accuracy, MidpointRounding mode = MidpointRounding.ToEven)
-        where T : IFloatingPoint<T>
+        where T : IFloatingPointIeee754<T>
     {
         var rows = matrix.Height;
         var columns = matrix.Width;
@@ -332,7 +332,7 @@ public static partial class Operations
     /// </acknowledgment>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static bool IsZeroRounded<T>(Span2D<T> the_matrix, int rows, int columns, int accuracy, MidpointRounding mode = MidpointRounding.ToEven)
-        where T : IFloatingPoint<T>
+        where T : IFloatingPointIeee754<T>
     {
         var zero_matrix = true;
         for (var i = 0; i < rows; i++)

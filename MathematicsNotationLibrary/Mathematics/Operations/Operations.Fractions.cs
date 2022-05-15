@@ -9,9 +9,6 @@
 // <remarks>
 // </remarks>
 
-using System;
-using System.Linq;
-
 namespace MathematicsNotationLibrary;
 
 /// <summary>

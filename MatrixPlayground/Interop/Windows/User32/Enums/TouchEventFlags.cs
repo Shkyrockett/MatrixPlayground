@@ -9,8 +9,6 @@
 // <remarks>
 // </remarks>
 
-using System;
-
 namespace MatrixPlayground;
 
 /// <summary>

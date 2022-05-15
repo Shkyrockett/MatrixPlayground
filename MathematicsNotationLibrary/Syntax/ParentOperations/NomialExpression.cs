@@ -10,9 +10,6 @@
 //     Based on the code at: http://csharphelper.com/blog/2017/09/recursively-draw-equations-in-c/ by Rod Stephens.
 // </remarks>
 
-using System;
-using System.Collections.Generic;
-using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Runtime.CompilerServices;
 using System.Text.Json.Serialization;

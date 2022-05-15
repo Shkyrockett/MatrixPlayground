@@ -9,8 +9,6 @@
 // <remarks>
 // </remarks>
 
-using System.Drawing;
-
 namespace MathematicsNotationLibrary;
 
 /// <summary>

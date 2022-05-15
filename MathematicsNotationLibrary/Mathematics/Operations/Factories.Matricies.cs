@@ -10,7 +10,7 @@
 // </remarks>
 
 using Microsoft.Toolkit.HighPerformance;
-using System;
+using System.Numerics;
 using System.Runtime.CompilerServices;
 
 namespace MathematicsNotationLibrary;
@@ -290,7 +290,7 @@ public static partial class Factories
     /// https://github.com/GeorgiSGeorgiev/ExtendedMatrixCalculator
     /// </acknowledgment>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static T[,] RandomNonZeroMatrix<T>(int rows, int columns) where T : INumber<T> => RandomNonZeroMatrix(rows, columns, T.Zero, T.One / T.Create(1000));
+    public static T[,] RandomNonZeroMatrix<T>(int rows, int columns) where T : INumber<T> => RandomNonZeroMatrix(rows, columns, T.Zero, T.One / T.CreateChecked(1000));
 
     /// <summary>
     /// Random matrix generator.

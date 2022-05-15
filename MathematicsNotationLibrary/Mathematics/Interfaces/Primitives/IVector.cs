@@ -9,8 +9,8 @@
 // <remarks>
 // </remarks>
 
-using System;
 using System.ComponentModel;
+using System.Numerics;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 

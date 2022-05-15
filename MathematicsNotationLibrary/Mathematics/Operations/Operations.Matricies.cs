@@ -10,7 +10,7 @@
 // </remarks>
 
 using Microsoft.Toolkit.HighPerformance;
-using System;
+using System.Numerics;
 using System.Runtime.CompilerServices;
 
 namespace MathematicsNotationLibrary;
@@ -30,7 +30,7 @@ public static partial class Operations
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static TResult[,] Round<T, TResult>(this Span2D<T> matrix, int accuracy, MidpointRounding mode = MidpointRounding.ToEven)
-        where T : IFloatingPoint<T>
+        where T : IFloatingPointIeee754<T>
         where TResult : INumber<TResult>
     {
         var rows = matrix.Height;
@@ -42,7 +42,7 @@ public static partial class Operations
         {
             for (var j = 0; j < columns; j++)
             {
-                result[i, j] = TResult.Create(T.Round(matrix[i, j], accuracy, mode));
+                result[i, j] = TResult.CreateChecked(T.Round(matrix[i, j], accuracy, mode));
             }
         }
 
@@ -60,7 +60,7 @@ public static partial class Operations
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static TResult[,] Round<T, TResult>(this Span2D<T> matrix, int rows, int columns, int accuracy, MidpointRounding mode = MidpointRounding.ToEven)
-        where T : IFloatingPoint<T>
+        where T : IFloatingPointIeee754<T>
         where TResult : INumber<TResult>
     {
         if (rows > matrix.Height || columns > matrix.Width)
@@ -74,7 +74,7 @@ public static partial class Operations
         {
             for (var j = 0; j < columns; j++)
             {
-                result[i, j] = TResult.Create(T.Round(matrix[i, j], accuracy, mode));
+                result[i, j] = TResult.CreateChecked(T.Round(matrix[i, j], accuracy, mode));
             }
         }
 
@@ -101,7 +101,7 @@ public static partial class Operations
         {
             for (int j = 0; j < value.Height; j++)
             {
-                result[i, j] = TResult.Create(value[i, j]);
+                result[i, j] = TResult.CreateChecked(value[i, j]);
             }
         }
 
@@ -133,7 +133,7 @@ public static partial class Operations
         {
             for (int j = 0; j < columns; j++)
             {
-                result[i, j] = TResult.Create(value[i, j]);
+                result[i, j] = TResult.CreateChecked(value[i, j]);
             }
         }
 
@@ -670,7 +670,7 @@ public static partial class Operations
     /// </acknowledgment>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static T[,] Transpose<T>(Span2D<T> matrix, int accuracy)
-        where T : IFloatingPoint<T>
+        where T : IFloatingPointIeee754<T>
     {
         var rows = matrix.Height;
         var columns = matrix.Width;
@@ -701,7 +701,7 @@ public static partial class Operations
     /// </acknowledgment>
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static T[,] Transpose<T>(Span2D<T> matrix, int rows, int columns, int accuracy)
-        where T : IFloatingPoint<T>
+        where T : IFloatingPointIeee754<T>
     {
         var result = new T[columns, rows];
         for (var i = 0; i < rows; i++)
